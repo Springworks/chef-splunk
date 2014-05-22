@@ -68,6 +68,9 @@ General attributes:
   listens to. This is set to the default for HTTPS, 443, as it is
   configured by the `setup_ssl` recipe.
 * `node['splunk']['ratelimit_kilobytessec']`: The default splunk rate limiting rate can now easily be changed with an attribute.  Default is 2048KBytes/sec.
+* `node['splunk']['splunk_auth_info']`: Authentication data, if not to be
+  downloaded using *chef-vault*. The value is a string with `username:password`
+  for logging in to Splunk.
 
 The two URL attributes below are selected by platform and architecture
 by default.
