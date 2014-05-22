@@ -38,6 +38,10 @@ default['splunk']['ssl_options'] = {
   'data_bag_item' => 'splunk_certificates',
   'keyfile' => 'self-signed.example.com.key',
   'crtfile' => 'self-signed.example.com.crt',
+
+  # SSL data for key and cert if not to be loaded from databag
+  # Should contain key/crt data mapped to `keyfile` and `crtfile` attributes.
+  'cert_data' => {},
 }
 
 default['splunk']['clustering'] = {
