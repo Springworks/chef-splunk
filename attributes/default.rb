@@ -93,3 +93,6 @@ when 'omnios'
   default['splunk']['forwarder']['url'] = 'https://download.splunk.com/products/universalforwarder/releases/6.6.0/solaris/splunkforwarder-6.6.0-1c4f3bbe1aea-solaris-10-intel.pkg.Z'
   default['splunk']['server']['url'] = 'https://download.splunk.com/products/splunk/releases/6.6.0/solaris/splunk-6.6.0-1c4f3bbe1aea-solaris-10-intel.pkg.Z'
 end
+
+# Splunk auth info (username:password), if not to be loaded from databag
+default['splunk']['splunk_auth_info'] = ''
