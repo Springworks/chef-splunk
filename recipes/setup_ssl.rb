@@ -26,10 +26,15 @@ end
 include_recipe 'chef-vault'
 ssl_options = node['splunk']['ssl_options']
 
-certs = chef_vault_item(
-  ssl_options['data_bag'],
-  ssl_options['data_bag_item']
-)['data']
+# Use defined certs or load from chef-vault
+if node['splunk']['ssl_options']['cert_data'].empty?
+  certs = chef_vault_item(
+      ssl_options['data_bag'],
+      ssl_options['data_bag_item']
+  )['data']
+else
+  certs = node['splunk']['ssl_options']['cert_data']
+end
 
 # ensure that the splunk service resource is available without cloning
 # the resource (CHEF-3694). this is so the later notification works,
