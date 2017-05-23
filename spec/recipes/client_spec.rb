@@ -50,7 +50,7 @@ describe 'chef-splunk::client' do
 
     it 'writes outputs.conf with tcpout server list from Chef search' do
       server_list = [splunk_indexer1, splunk_indexer2].map do |s|
-        s['fqdn'] + ':' + s['splunk']['receiver_port']
+        s['ipaddress'] + ':' + s['splunk']['receiver_port']
       end.join(', ')
       expect(chef_run).to render_file('/opt/splunkforwarder/etc/system/local/outputs.conf')
         .with_content("server = #{server_list}")

@@ -31,7 +31,7 @@ splunk_servers = search(
 end
 
 server_list = splunk_servers.map do |s|
-  "#{s['fqdn'] || s['ipaddress']}:#{s['splunk']['receiver_port']}"
+  "#{s['ipaddress']}:#{s['splunk']['receiver_port']}"
 end.join(', ')
 
 # fallback to statically defined server list as alternative to search
